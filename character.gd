@@ -3,6 +3,9 @@ extends CharacterBody3D
 const SPEED = 5.0
 const HORIZONTAL_ACCELERATION = 3
 const MAX_SPEED=5
+const WAVE_SPEED=5
+const WAVE_HEIGHT=0.5
+const SEA_LEVEL=1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -25,9 +28,8 @@ func _unhandled_key_input(event):
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	# Add the waves
+	position.y = cos(Time.get_unix_time_from_system() * WAVE_SPEED) * WAVE_HEIGHT + SEA_LEVEL
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

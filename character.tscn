@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://doh0w0if3r85g"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_7egtf"]
+[ext_resource type="PackedScene" uid="uid://x0irgxi44jpx" path="res://assets/bin.glb" id="2_1lwq4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8wiiv"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_3y4jd"]
 
 [node name="character" type="CharacterBody3D"]
 collision_layer = 2
@@ -15,11 +14,10 @@ script = ExtResource("1_7egtf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8wiiv")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_3y4jd")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.967268, 0.253758, 0, -0.253758, 0.967268, 0.0225099, 2.36403, 1.92145)
 rotation_order = 0
 current = true
+
+[node name="bin" parent="." instance=ExtResource("2_1lwq4")]
+transform = Transform3D(-0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -0.10923, 0.916005, -0.0148489)

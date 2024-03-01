@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=10 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://character.tscn" id="2_7bd7c"]
 [ext_resource type="Script" path="res://animation.gd" id="3_w4bpu"]
+[ext_resource type="PackedScene" uid="uid://bat4oce2wgj0y" path="res://enemy_ram.tscn" id="4_vixoe"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1
@@ -68,7 +69,7 @@ shadow_enabled = true
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40654, 21.8382)
 use_collision = true
-collision_mask = 7
+collision_mask = 15
 size = Vector3(30, 2, 30)
 material = SubResource("ShaderMaterial_rwhea")
 
@@ -79,3 +80,8 @@ libraries = {
 "": SubResource("AnimationLibrary_vyo8q")
 }
 script = ExtResource("3_w4bpu")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemyRam" parent="Enemies" instance=ExtResource("4_vixoe")]
+transform = Transform3D(-0.0340274, 0, 0.999421, 0, 1, 0, -0.999421, 0, -0.0340274, -6.101, 1.06697, 0)

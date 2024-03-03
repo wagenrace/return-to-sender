@@ -11,16 +11,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera = $Camera3D
 
-
-
 func _ready():
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * .005)
+func _unhandled_input(_event):
+	if _event is InputEventMouseMotion and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED:
+		rotate_y(-_event.relative.x * .005)
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.mouse_mode==Input.MOUSE_MODE_CAPTURED: 
 			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE

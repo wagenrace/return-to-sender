@@ -16,8 +16,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00311279)
 shape = SubResource("BoxShape3D_xbylp")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00340271)
-layers = 2
+transform = Transform3D(0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 0, 0, -0.00340271)
+layers = 8
 size = Vector3(1, 1, 2.0228)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

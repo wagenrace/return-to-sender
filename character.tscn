@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://doh0w0if3r85g"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_7egtf"]
-[ext_resource type="PackedScene" uid="uid://x0irgxi44jpx" path="res://assets/bin.glb" id="2_54wbh"]
+[ext_resource type="PackedScene" uid="uid://mcqngx6prajp" path="res://assets/bin.gltf" id="2_8sjl4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmb13"]
 size = Vector3(1, 1.24939, 0.635315)
@@ -24,4 +24,4 @@ current = true
 
 [node name="PlayerPivot" type="Node3D" parent="."]
 
-[node name="bin" parent="PlayerPivot" instance=ExtResource("2_54wbh")]
+[node name="bin" parent="PlayerPivot" instance=ExtResource("2_8sjl4")]

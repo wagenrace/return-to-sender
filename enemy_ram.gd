@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 2.5
+const PUSH_VELOCITY = 10
 const ACCEL = 10
 var player
 

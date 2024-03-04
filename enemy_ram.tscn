@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bat4oce2wgj0y"]
+
+[ext_resource type="Script" path="res://enemy_ram.gd" id="1_oamt8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbylp"]
+size = Vector3(1, 1, 2.02405)
+
+[node name="EnemyRam" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482492, 0)
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_oamt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00311279)
+shape = SubResource("BoxShape3D_xbylp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 0, 0, -0.00340271)
+layers = 8
+size = Vector3(1, 1, 2.0228)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

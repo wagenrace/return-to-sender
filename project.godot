@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Basic3dStarter"
+config/name="Return2Sender"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -47,6 +47,7 @@ move_backward={
 3d_physics/layer_1="world"
 3d_physics/layer_2="player"
 3d_physics/layer_3="props"
+3d_physics/layer_4="npcs"
 
 [rendering]
 

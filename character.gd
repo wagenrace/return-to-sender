@@ -2,14 +2,14 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const HORIZONTAL_ACCELERATION = 3
-const MAX_SPEED=5
+const ROTATION_SPEED = 2
+const CAMERA_ROTATION_SPEED = .0015
 const WAVE_SPEED=5
 const WAVE_HEIGHT=0.5
 const SEA_LEVEL=1
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var camera = $Camera3D
+@onready var camera = $CameraPivot
+@onready var player = $PlayerPivot
 
 func _ready():
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -17,7 +17,8 @@ func _ready():
 
 func _unhandled_input(_event):
 	if _event is InputEventMouseMotion and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-_event.relative.x * .005)
+		camera.rotate_y(-_event.relative.x * CAMERA_ROTATION_SPEED)
+		#TODO clip the camera rotation to the player rotation
 
 func _unhandled_key_input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -31,20 +32,21 @@ func _physics_process(delta):
 	position.y = cos(Time.get_unix_time_from_system() * WAVE_SPEED) * WAVE_HEIGHT + SEA_LEVEL
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Vector3.ZERO
 	input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	input_dir=input_dir.normalized()
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	## Get the forward speed (the y direction of the input)
+	## This is controlled with the w-s up-down
+	var direction = (transform.basis * Vector3(0, 0, input_dir.y)).rotated(Vector3(0, 1, 0), player.rotation.y)
 	direction *= SPEED
 	velocity.x = move_toward(velocity.x,direction.x, HORIZONTAL_ACCELERATION * delta)
 	velocity.z = move_toward(velocity.z,direction.z, HORIZONTAL_ACCELERATION * delta)
-
-	var angle=5
-	#rotation_degrees=Vector3(input_dir.normalized().y*angle,rotation_degrees.y,-input_dir.normalized().x*angle)
-	var t = delta * 6
-	if Input.mouse_mode==Input.MOUSE_MODE_CAPTURED: 
-		rotation_degrees=rotation_degrees.lerp(Vector3(input_dir.normalized().y*angle,rotation_degrees.y,-input_dir.normalized().x*angle),t)
 	
+	## Get rotation (the x direction of the input)
+	## This is controlled with a-d left-right
+	## We apply it to the player AND the camera so the camera follows the player
+	player.rotation.y -= input_dir.x * delta * ROTATION_SPEED
+	camera.rotation.y -= input_dir.x * delta * ROTATION_SPEED
 	move_and_slide()
 	force_update_transform()

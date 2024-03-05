@@ -110,3 +110,6 @@ script = ExtResource("3_w4bpu")
 
 [node name="EnemyRam" parent="Enemies" instance=ExtResource("4_vixoe")]
 transform = Transform3D(-0.0340274, 0, 0.999421, 0, 1, 0, -0.999421, 0, -0.0340274, 8.03603, 1.5383, -18.76)
+
+[node name="EnemyRam2" parent="Enemies" instance=ExtResource("4_vixoe")]
+transform = Transform3D(-0.997684, 0, -0.0680154, 0, 1, 0, 0.0680154, 0, -0.997684, 9.53332, 3.53954, -6.0442)

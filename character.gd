@@ -20,13 +20,6 @@ func _unhandled_input(_event):
 		camera.rotate_y(-_event.relative.x * CAMERA_ROTATION_SPEED)
 		#TODO clip the camera rotation to the player rotation
 
-func _unhandled_key_input(_event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.mouse_mode==Input.MOUSE_MODE_CAPTURED: 
-			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-
 func _physics_process(delta):
 	# Add the waves
 	position.y = cos(Time.get_unix_time_from_system() * WAVE_SPEED) * WAVE_HEIGHT + SEA_LEVEL

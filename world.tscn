@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=13 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://character.tscn" id="2_7bd7c"]
 [ext_resource type="Script" path="res://animation.gd" id="3_w4bpu"]
 [ext_resource type="PackedScene" uid="uid://bat4oce2wgj0y" path="res://enemy_ram.tscn" id="4_vixoe"]
+[ext_resource type="Script" path="res://MenuController.gd" id="5_wkwxv"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1
@@ -113,3 +114,42 @@ transform = Transform3D(-0.0340274, 0, 0.999421, 0, 1, 0, -0.999421, 0, -0.03402
 
 [node name="EnemyRam2" parent="Enemies" instance=ExtResource("4_vixoe")]
 transform = Transform3D(-0.997684, 0, -0.0680154, 0, 1, 0, 0.0680154, 0, -0.997684, 9.53332, 3.53954, -6.0442)
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+script = ExtResource("5_wkwxv")
+
+[node name="ResumeButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -231.0
+offset_right = 288.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = 9.0
+offset_right = 294.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"

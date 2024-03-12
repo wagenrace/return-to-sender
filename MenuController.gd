@@ -1,7 +1,7 @@
 extends Control
 
-@onready var resumeButton = $ResumeButton
-@onready var exitButton = $ExitButton
+@onready var resumeButton = $VBoxContainer/Buttons/ResumeButton
+@onready var exitButton = $VBoxContainer/Buttons/ExitButton
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	resumeButton.connect("pressed", _on_resume_button_pressed)

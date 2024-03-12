@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=9 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://character.tscn" id="2_7bd7c"]
 [ext_resource type="Script" path="res://Sea.gd" id="2_7bkbk"]
 [ext_resource type="PackedScene" uid="uid://bat4oce2wgj0y" path="res://enemy_ram.tscn" id="4_vixoe"]
+[ext_resource type="PackedScene" uid="uid://c2432pxsbqe8f" path="res://pause_screen.tscn" id="5_60xdr"]
 [ext_resource type="PackedScene" path="res://WorldMap.tscn" id="5_i00ga"]
-[ext_resource type="Script" path="res://MenuController.gd" id="5_wkwxv"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1
@@ -16,9 +16,6 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Arr
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ofpb"]
 transparency = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_v164k"]
-font_size = 32
 
 [node name="World" type="Node3D"]
 
@@ -55,54 +52,6 @@ transform = Transform3D(-0.0340274, 0, 0.999421, 0, 1, 0, -0.999421, 0, -0.03402
 [node name="EnemyRam2" parent="Enemies" instance=ExtResource("4_vixoe")]
 transform = Transform3D(-0.997684, 0, -0.0680154, 0, 1, 0, 0.0680154, 0, -0.997684, -27.4667, 3.53954, -6.0442)
 
-[node name="PauseScreenControl" type="Control" parent="."]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_wkwxv")
-
-[node name="ColorRect" type="ColorRect" parent="PauseScreenControl"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.2, 0.2, 0.2, 0.2)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreenControl"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="ButtonText" type="HBoxContainer" parent="PauseScreenControl/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="PauseScreenControl/VBoxContainer/ButtonText"]
-layout_mode = 2
-text = "hello this is the menu yeah B-)"
-label_settings = SubResource("LabelSettings_v164k")
-
-[node name="Buttons" type="HBoxContainer" parent="PauseScreenControl/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="ResumeButton" type="Button" parent="PauseScreenControl/VBoxContainer/Buttons"]
-layout_mode = 2
-text = "Resume"
-
-[node name="ExitButton" type="Button" parent="PauseScreenControl/VBoxContainer/Buttons"]
-layout_mode = 2
-text = "Exit"
+[node name="PauseScreenControl" parent="." instance=ExtResource("5_60xdr")]
 
 [node name="WorldMap" parent="." instance=ExtResource("5_i00ga")]

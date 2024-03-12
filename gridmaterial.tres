@@ -221,6 +221,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-219.333, 410.667)
 modes/depth_draw = 1
 varyings/world_position = "0,4"
 nodes/vertex/0/position = Vector2(720, 520)

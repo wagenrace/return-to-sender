@@ -7,9 +7,11 @@ const ACCEL = 10
 var player
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
+var sea
 
 func _ready():
 	player = get_tree().get_root().get_node("World").get_node("Player")
+	sea = get_tree().get_root().get_node("World").get_node("NavigationRegion3D").get_node("Sea")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -17,6 +19,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
 	var direction = Vector3()
+	if sea:
+		position.y = sea.get_wave_height()
+	else:
+		position.y = 0
 	if player:
 		var player_pos = player.get_position()
 		nav.target_position = player_pos

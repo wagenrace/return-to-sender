@@ -4,16 +4,15 @@ const SPEED = 5.0
 const HORIZONTAL_ACCELERATION = 3
 const ROTATION_SPEED = 2
 const CAMERA_ROTATION_SPEED = .0015
-const WAVE_SPEED=5
-const WAVE_HEIGHT=0.5
-const SEA_LEVEL=1
 
 @onready var camera = $CameraPivot
 @onready var player = $PlayerPivot
+var sea
 
 func _ready():
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	$PlayerPivot/bin/AnimationPlayer.play('roll')
+	sea = get_tree().get_root().get_node("World").get_node("NavigationRegion3D").get_node("Sea")
 
 func _unhandled_input(_event):
 	if _event is InputEventMouseMotion and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED:
@@ -22,7 +21,10 @@ func _unhandled_input(_event):
 
 func _physics_process(delta):
 	# Add the waves
-	position.y = cos(Time.get_unix_time_from_system() * WAVE_SPEED) * WAVE_HEIGHT + SEA_LEVEL
+	if sea:
+		position.y = sea.get_wave_height()
+	else:
+		position.y = 0
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Vector3.ZERO

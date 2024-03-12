@@ -115,7 +115,7 @@ transform = Transform3D(-0.0340274, 0, 0.999421, 0, 1, 0, -0.999421, 0, -0.03402
 [node name="EnemyRam2" parent="Enemies" instance=ExtResource("4_vixoe")]
 transform = Transform3D(-0.997684, 0, -0.0680154, 0, 1, 0, 0.0680154, 0, -0.997684, 9.53332, 3.53954, -6.0442)
 
-[node name="Control" type="Control" parent="."]
+[node name="PauseScreenControl" type="Control" parent="."]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -134,7 +134,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("5_wkwxv")
 
-[node name="ResumeButton" type="Button" parent="Control"]
+[node name="ResumeButton" type="Button" parent="PauseScreenControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -149,7 +149,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Resume"
 
-[node name="ExitButton" type="Button" parent="Control"]
+[node name="ExitButton" type="Button" parent="PauseScreenControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

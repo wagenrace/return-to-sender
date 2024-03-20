@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Sea.gd" id="2_7bkbk"]
 [ext_resource type="PackedScene" uid="uid://bat4oce2wgj0y" path="res://enemy_ram.tscn" id="4_vixoe"]
 [ext_resource type="PackedScene" uid="uid://c2432pxsbqe8f" path="res://pause_screen.tscn" id="5_60xdr"]
-[ext_resource type="PackedScene" path="res://WorldMap.tscn" id="5_i00ga"]
+[ext_resource type="PackedScene" uid="uid://bn53eddmb73a6" path="res://WorldMap.tscn" id="5_i00ga"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1

@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2432pxsbqe8f"]
+[gd_scene load_steps=5 format=3 uid="uid://c2432pxsbqe8f"]
 
 [ext_resource type="Script" path="res://MenuController.gd" id="1_k0hij"]
+[ext_resource type="Texture2D" uid="uid://c2uivlk0wpi8q" path="res://assets/arrow keys.svg" id="2_fnnqh"]
+[ext_resource type="Texture2D" uid="uid://bb4id5krrqcdq" path="res://assets/wasd keys.svg" id="3_2qycy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v164k"]
 font_size = 32
 
 [node name="PauseScreenControl" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,3 +55,17 @@ text = "Resume"
 [node name="ExitButton" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Exit"
+
+[node name="ArrowInstructions" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ArrowKeys" type="Sprite2D" parent="VBoxContainer/ArrowInstructions"]
+position = Vector2(919.554, 132.5)
+scale = Vector2(0.537919, 0.537919)
+texture = ExtResource("2_fnnqh")
+
+[node name="WasdKeys" type="Sprite2D" parent="."]
+position = Vector2(232, 498)
+scale = Vector2(0.524691, 0.524691)
+texture = ExtResource("3_2qycy")

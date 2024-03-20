@@ -6,6 +6,7 @@ extends Control
 func _ready():
 	resumeButton.connect("pressed", _on_resume_button_pressed)
 	exitButton.connect("pressed", _on_exit_button_pressed)
+	pauseGame()
 
 func _on_resume_button_pressed():
 	resumeGame()
